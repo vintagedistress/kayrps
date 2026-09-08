@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>NameHere | RP Tracker</title>
+        <title>Kay | RP Tracker</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!--Styles-->
@@ -139,8 +139,8 @@
 
                     <!-- |Start Site Status Block| -->
                     <div class="charts--thread-status charts--breakdown">
-                        <h2>site name from sheet</h2>
-                        <canvas id="siteidfromsheet"></canvas>
+                        <h2>destiny of darkness</h2>
+                        <canvas id="dod"></canvas>
                     </div>
                     <script>
                         fetch(`https://opensheet.elk.sh/${sheetID}/Threads`)
@@ -150,7 +150,7 @@
                             .then((response) => response.json())
                             .then((siteData) => {
                                 //set overall variables
-                                let siteName = 'site name from sheet';
+                                let siteName = 'destiny of darkness';
                                 let siteObject = siteName !== 'all' ? siteData.filter(item => item.Site === siteName) : siteData;
                                 let threadStats = createThreadStats(threadData, siteObject, siteName, siteData);
 
@@ -168,6 +168,42 @@
                             });
                         });
                     </script>
+
+
+
+
+                    
+                    <div class="charts--thread-status charts--breakdown">
+                        <h2>twenty magpies</h2>
+                        <canvas id="tm"></canvas>
+                    </div>
+                    <script>
+                        fetch(`https://opensheet.elk.sh/${sheetID}/Threads`)
+                        .then((response) => response.json())
+                        .then((threadData) => {
+                            fetch(`https://opensheet.elk.sh/${sheetID}/Sites`)
+                            .then((response) => response.json())
+                            .then((siteData) => {
+                                //set overall variables
+                                let siteName = 'twenty magpies';
+                                let siteObject = siteName !== 'all' ? siteData.filter(item => item.Site === siteName) : siteData;
+                                let threadStats = createThreadStats(threadData, siteObject, siteName, siteData);
+
+                                /*Thread Status*/
+                                new Chart(document.getElementById('siteidfromsheet'), {
+                                    ...chartOptions,
+                                    data: {
+                                        labels: threadStats[0].status.tags.map(item => item.toUpperCase()),
+                                        datasets: [{
+                                            data: threadStats[0].status.totals,
+                                            ...datasetOptions
+                                        }]
+                                    },
+                                });
+                            });
+                        });
+                    </script>
+                    
                     <!-- |End Site Status Block| -->
 
                 </div>
