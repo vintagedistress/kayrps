@@ -25,6 +25,8 @@ const relationshipOptions = `<option value="">(select)</option>
         <option value="adopted child">Adopted Child</option>
         <option value="foster sibling">Foster Sibling</option>
         <option value="foster child">Foster Child</option>
+        <option value="parent in law">Parent in Law</option>
+        <option value="sibling in law">Sibling in Law</option>
     </optgroup>
     <optgroup label="Extended Family">
         <option value="ancestor">Ancestor</option>
