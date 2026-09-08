@@ -1,5 +1,5 @@
-const deployID = 'deploy id here';
-const sheetID = `sheet id here`;
+const deployID = 'AKfycbxJfbS95ZPa430hkkpvjsHzxJxRgQpR3jPXavrOzFvZrhyx-Kq2YCPkNL6SGt0QnoLf';
+const sheetID = `1ph9B8668rKexD-sabFR_TrJegOwLjDQs-deh2zKZm2o`;
 
 //Options for relationships and thread tags
 const relationshipSections = `<option value="">(select)</option>
@@ -41,6 +41,7 @@ const relationshipOptions = `<option value="">(select)</option>
         <option value="betrothed">Betrothed</option>
         <option value="partner">Partner</option>
         <option value="crush">Crush</option>
+        <option value="bonded">Bonded</option>
         <option value="fling">Fling</option>
     </optgroup>
     <optgroup label="Platonic">
