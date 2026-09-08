@@ -1,0 +1,618 @@
+.characters {
+  display: grid; }
+  @media (min-width: 601px) {
+    .characters {
+      grid-template-columns: var(--size--filters-width) calc(100% - var(--size--filters-width)); } }
+  .characters--header {
+    position: sticky;
+    top: 0;
+    background: var(--bg--quaternary);
+    z-index: 2;
+    border-right: var(--border--primary);
+    padding: var(--space--md);
+    height: 61px; }
+    @media (min-width: 601px) {
+      .characters--header {
+        height: 100vh;
+        padding: var(--space--md) 0 var(--space--md) var(--space--md); } }
+    .characters--header > button {
+      background: none;
+      border: var(--border--primary);
+      border-radius: var(--radius--standard);
+      font-size: 9px;
+      text-transform: uppercase;
+      color: var(--text--primary);
+      letter-spacing: 0.1em;
+      font-weight: 700;
+      line-height: 100%;
+      padding: var(--space--sm);
+      cursor: pointer;
+      transition: 0.3s ease-in-out; }
+      .characters--header > button:hover {
+        background: var(--accent);
+        color: var(--text--secondary); }
+  .characters--filters {
+    height: 100%; }
+    .characters--filters-inner {
+      height: 100%;
+      overflow: auto;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space--xs);
+      scrollbar-width: thin;
+      scrollbar-color: var(--accent) transparent;
+      padding-right: var(--space--md); }
+      .characters--filters-inner > input {
+        width: 100%;
+        background: var(--bg--primary);
+        border: none;
+        border-left: var(--border--primary);
+        padding: var(--space--xs) var(--space--sm);
+        color: var(--text--primary);
+        font-size: 0.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        transition: 0.3s ease-in-out;
+        outline: none; }
+        .characters--filters-inner > input:focus {
+          border-color: var(--accent);
+          color: var(--text--secondary); }
+      .characters--filters-inner .filter--parent > button {
+        width: 100%;
+        background: var(--bg--primary);
+        border: none;
+        border-left: var(--border--primary);
+        padding: var(--space--xs) var(--space--sm);
+        color: var(--text--primary);
+        font-size: 0.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        transition: 0.3s ease-in-out;
+        outline: none;
+        cursor: pointer;
+        text-align: left; }
+      .characters--filters-inner .filter--parent.is-active > button {
+        border-color: var(--accent);
+        color: var(--text--secondary); }
+      .characters--filters-inner .filter--parent.is-active .characters--filter-dropdown {
+        display: block; }
+      .characters--filters-inner .filter--parent.is-active .characters--sorting {
+        display: flex; }
+      .characters--filters-inner > strong {
+        text-transform: uppercase;
+        font-weight: 900;
+        font-size: 0.625rem;
+        letter-spacing: 0.1em;
+        line-height: 160%;
+        margin: var(--space--md) 0 0; }
+      .characters--filters-inner a {
+        background: var(--bg--primary);
+        border-left: var(--border--primary);
+        padding: var(--space--xs) var(--space--sm);
+        color: var(--text--primary);
+        font-size: 0.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        transition: 0.3s ease-in-out; }
+        .characters--filters-inner a:hover {
+          border-color: var(--accent);
+          color: var(--text--secondary); }
+  .characters--filter-dropdown {
+    display: none; }
+  .characters--filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space--sm);
+    padding: var(--space--sm); }
+    .characters--filter-group label {
+      display: flex;
+      align-items: center;
+      gap: var(--space--sm);
+      line-height: 100%;
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text--primary);
+      transition: 0.3s ease-in-out;
+      cursor: pointer; }
+      .characters--filter-group label:hover {
+        color: var(--text--secondary); }
+      .characters--filter-group label > span {
+        width: 20px;
+        height: 20px;
+        border: var(--border--primary);
+        border-radius: var(--radius--standard);
+        transition: 0.3s ease-in-out;
+        opacity: 1; }
+        .characters--filter-group label > span input {
+          display: none; }
+      .characters--filter-group label:not(.is-checked):hover > span {
+        border-color: var(--accent);
+        background: var(--accent);
+        opacity: 0.5; }
+      .characters--filter-group label.is-checked {
+        color: var(--text--secondary); }
+        .characters--filter-group label.is-checked > span {
+          border-color: var(--accent);
+          background: var(--accent); }
+  .characters--sorting {
+    flex-direction: column;
+    gap: var(--space--sm);
+    padding: var(--space--sm); }
+    .characters--sorting button {
+      display: flex;
+      align-items: center;
+      gap: var(--space--sm);
+      line-height: 100%;
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text--primary);
+      transition: 0.3s ease-in-out;
+      border: none;
+      background: none;
+      cursor: pointer;
+      font-weight: 700; }
+      .characters--sorting button:hover {
+        color: var(--text--secondary); }
+      .characters--sorting button::before {
+        content: '';
+        width: 20px;
+        height: 20px;
+        border: var(--border--primary);
+        border-radius: var(--radius--standard);
+        transition: 0.3s ease-in-out;
+        opacity: 1; }
+      .characters--sorting button:not(.is-checked):hover::before {
+        border-color: var(--accent);
+        background: var(--accent);
+        opacity: 0.5; }
+      .characters--sorting button.is-checked {
+        color: var(--text--secondary); }
+        .characters--sorting button.is-checked::before {
+          border-color: var(--accent);
+          background: var(--accent); }
+  .characters--content {
+    overflow: hidden;
+    padding: var(--space--md); }
+    @media (min-width: 601px) {
+      .characters--content {
+        padding: var(--space--lg); } }
+
+.character {
+  width: 100%;
+  margin-bottom: var(--space--sm);
+  background: var(--bg--tertiary);
+  border-left: var(--border--thick);
+  border-color: var(--accent); }
+  .character a {
+    color: var(--text-secondary); }
+  .character--wrap {
+    display: grid;
+    gap: var(--space--md);
+    min-height: 150px;
+    align-items: center; }
+    @media (min-width: 1025px) {
+      .character--wrap {
+        grid-template-columns: 100px auto; } }
+    @media (min-width: 1025px) {
+      .character--wrap:has(.character--right) {
+        grid-template-columns: 100px auto 300px; } }
+  .character--image {
+    height: 100%; }
+    .character--image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center; }
+    @media (max-width: 1024px) {
+      .character--image {
+        display: none; } }
+  .character--main {
+    display: grid;
+    padding: var(--space--md) var(--space--md) 0;
+    height: max-content; }
+    @media (min-width: 601px) {
+      .character--main {
+        padding: var(--space--md) var(--space--lg) 0; } }
+    @media (min-width: 1025px) {
+      .character--main {
+        padding: var(--space--md) var(--space--lg); } }
+    .character--main > span {
+      font-size: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      line-height: 200%; }
+      .character--main > span.bigger {
+        font-size: 9px; }
+      .character--main > span a {
+        font-weight: 900; }
+  .character--title {
+    display: flex;
+    gap: 15px;
+    font-family: var(--font--serif);
+    font-weight: 900;
+    font-size: 24px;
+    margin: 10px 0; }
+    .character--title a::after {
+      display: none; }
+  .character--info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space--xs) var(--space--lg);
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    line-height: 200%; }
+    .character--info > button {
+      background: none;
+      border: none;
+      font-size: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      line-height: 200%;
+      color: var(--text--primary);
+      cursor: pointer;
+      margin: 0;
+      padding: 0; }
+      .character--info > button.is-active {
+        border-bottom: var(--border--primary);
+        border-color: var(--accent); }
+  .character--right {
+    position: relative;
+    font-size: 12px;
+    line-height: 180%;
+    text-align: justify;
+    padding: 0 var(--space--md);
+    height: 100%; }
+    @media (min-width: 1025px) {
+      .character--right {
+        padding: 0; } }
+    .character--right-inner {
+      width: 100%;
+      height: 100%;
+      max-height: 100px;
+      padding: var(--space--sm) var(--space--md);
+      border-top: var(--border--primary); }
+      @media (min-width: 1025px) {
+        .character--right-inner {
+          position: absolute;
+          top: var(--space--md);
+          left: var(--space--md);
+          height: calc(100% - (2 * var(--space--md)));
+          width: calc(100% - var(--space--md));
+          max-height: none;
+          border-left: var(--border--primary);
+          border-top: none; } }
+      .character--right-inner .scroll {
+        height: 100%;
+        overflow: auto;
+        padding-right: var(--space--md);
+        scrollbar-width: thin;
+        scrollbar-color: var(--bg--primary) transparent; }
+  .character--modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 10;
+    background: rgba(24, 24, 24, 0.9);
+    backdrop-filter: blur(5px);
+    display: none;
+    align-items: center;
+    justify-content: center; }
+    .character--modal.is-open {
+      display: flex; }
+    .character--modal-inner {
+      width: 100%;
+      height: 100%;
+      max-width: 800px;
+      max-height: 300px;
+      background: var(--bg--quaternary);
+      padding: var(--space--lg) var(--space--md) var(--space--lg) var(--space--lg); }
+      .character--modal-inner:has(.apps) {
+        max-height: 500px;
+        max-width: 600px; }
+      .character--modal-inner-scroll {
+        height: 100%;
+        overflow: auto;
+        scrollbar-width: thin;
+        scrollbar-color: var(--accent) transparent;
+        padding-right: var(--space--md); }
+      .character--modal-inner ul {
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+        display: grid;
+        gap: var(--space--sm); }
+        @media (min-width: 601px) {
+          .character--modal-inner ul {
+            grid-template-columns: repeat(2, 1fr); } }
+        .character--modal-inner ul li {
+          display: flex;
+          flex-direction: column;
+          border-left: var(--border--primary);
+          border-left-color: var(--accent);
+          background: var(--bg--primary);
+          padding: var(--space--sm) var(--space--md);
+          color: var(--text--primary);
+          font-size: 0.5rem;
+          text-transform: uppercase;
+          letter-spacing: 0.2em;
+          line-height: 200%; }
+          .character--modal-inner ul li b {
+            line-height: 200%;
+            font-size: 10px;
+            font-weight: 900;
+            letter-spacing: 0.1em; }
+    .character--modal-header {
+      text-transform: capitalize;
+      font-size: 1.25rem;
+      font-weight: 900;
+      font-family: var(--font--serif);
+      border-bottom: var(--border--secondary);
+      margin-bottom: var(--space--sm); }
+      .character--modal-header:not(:first-child) {
+        margin-top: var(--space--lg); }
+  .character .apps * {
+    all: unset; }
+  .character .apps .accordion--trigger {
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 0.5rem;
+    letter-spacing: 0.2em;
+    font-weight: 900; }
+    .character .apps .accordion--trigger::after {
+      content: '\f107';
+      font-family: 'Font Awesome 7 Pro';
+      font-weight: 700;
+      margin-left: var(--space--sm);
+      top: -0.1em;
+      position: relative;
+      transform: rotate(0deg);
+      transition-duration: 0.3s;
+      display: inline-block; }
+    .character .apps .accordion--trigger.is-active::after {
+      transform: rotate(180deg); }
+  .character .apps .accordion--content {
+    display: none;
+    padding-bottom: var(--space--md); }
+    .character .apps .accordion--content.is-active {
+      display: block; }
+  .character .app--block {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space--sm);
+    color: var(--text--primary);
+    font-size: 0.75rem;
+    line-height: 200%;
+    text-align: justify; }
+    .character .app--block:not(:last-child) {
+      margin-bottom: var(--space--md); }
+      @media (min-width: 481px) {
+        .character .app--block:not(:last-child) {
+          margin-bottom: var(--space--lg); } }
+    .character .app--block strong {
+      line-height: 200%;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-bottom: var(--border--primary);
+      border-bottom-color: var(--accent);
+      width: max-content;
+      max-width: 100%; }
+    .character .app--block > .scroll {
+      border-left: var(--border--primary);
+      border-left-color: var(--accent);
+      background: var(--bg--primary);
+      padding: var(--space--md); }
+      @media (min-width: 481px) {
+        .character .app--block > .scroll {
+          padding: var(--space--md) var(--space--lg); } }
+      .character .app--block > .scroll ul {
+        display: block;
+        padding-left: var(--space--md); }
+        .character .app--block > .scroll ul > br {
+          display: none; }
+        .character .app--block > .scroll ul li {
+          display: list-item;
+          padding-left: var(--space--sm); }
+          .character .app--block > .scroll ul li:first-child {
+            padding-top: var(--space--sm); }
+          .character .app--block > .scroll ul li:not(:last-child) {
+            padding-bottom: var(--space--md); }
+          .character .app--block > .scroll ul li::marker {
+            content: '\f86c';
+            font-family: 'Font Awesome 7 Sharp';
+            font-weight: 300;
+            color: var(--accent); }
+      .character .app--block > .scroll tag-shiptitle,
+      .character .app--block > .scroll tag-relheader,
+      .character .app--block > .scroll tag-relationship > b,
+      .character .app--block > .scroll tag-relationship > a,
+      .character .app--block > .scroll tag-rel > b,
+      .character .app--block > .scroll tag-rel > a,
+      .character .app--block > .scroll h2,
+      .character .app--block > .scroll h3,
+      .character .app--block > .scroll h4,
+      .character .app--block > .scroll h5,
+      .character .app--block > .scroll h6,
+      .character .app--block > .scroll h7,
+      .character .app--block > .scroll h8,
+      .character .app--block > .scroll .h2,
+      .character .app--block > .scroll .h3,
+      .character .app--block > .scroll .h4,
+      .character .app--block > .scroll .h5,
+      .character .app--block > .scroll .h6,
+      .character .app--block > .scroll .h7,
+      .character .app--block > .scroll .h8,
+      .character .app--block > .scroll tag-xl,
+      .character .app--block > .scroll tag-lg,
+      .character .app--block > .scroll tag-md,
+      .character .app--block > .scroll tag-sm,
+      .character .app--block > .scroll tag-xs,
+      .character .app--block > .scroll tag-year,
+      .character .app--block > .scroll tag-date {
+        display: block;
+        width: max-content;
+        max-width: 100%;
+        text-transform: uppercase;
+        font-weight: 900; }
+        .character .app--block > .scroll tag-shiptitle:not(:first-child),
+        .character .app--block > .scroll tag-relheader:not(:first-child),
+        .character .app--block > .scroll tag-relationship > b:not(:first-child),
+        .character .app--block > .scroll tag-relationship > a:not(:first-child),
+        .character .app--block > .scroll tag-rel > b:not(:first-child),
+        .character .app--block > .scroll tag-rel > a:not(:first-child),
+        .character .app--block > .scroll h2:not(:first-child),
+        .character .app--block > .scroll h3:not(:first-child),
+        .character .app--block > .scroll h4:not(:first-child),
+        .character .app--block > .scroll h5:not(:first-child),
+        .character .app--block > .scroll h6:not(:first-child),
+        .character .app--block > .scroll h7:not(:first-child),
+        .character .app--block > .scroll h8:not(:first-child),
+        .character .app--block > .scroll .h2:not(:first-child),
+        .character .app--block > .scroll .h3:not(:first-child),
+        .character .app--block > .scroll .h4:not(:first-child),
+        .character .app--block > .scroll .h5:not(:first-child),
+        .character .app--block > .scroll .h6:not(:first-child),
+        .character .app--block > .scroll .h7:not(:first-child),
+        .character .app--block > .scroll .h8:not(:first-child),
+        .character .app--block > .scroll tag-xl:not(:first-child),
+        .character .app--block > .scroll tag-lg:not(:first-child),
+        .character .app--block > .scroll tag-md:not(:first-child),
+        .character .app--block > .scroll tag-sm:not(:first-child),
+        .character .app--block > .scroll tag-xs:not(:first-child),
+        .character .app--block > .scroll tag-year:not(:first-child),
+        .character .app--block > .scroll tag-date:not(:first-child) {
+          margin: 1em 0; }
+        .character .app--block > .scroll tag-shiptitle + br,
+        .character .app--block > .scroll tag-relheader + br,
+        .character .app--block > .scroll tag-relationship > b + br,
+        .character .app--block > .scroll tag-relationship > a + br,
+        .character .app--block > .scroll tag-rel > b + br,
+        .character .app--block > .scroll tag-rel > a + br,
+        .character .app--block > .scroll h2 + br,
+        .character .app--block > .scroll h3 + br,
+        .character .app--block > .scroll h4 + br,
+        .character .app--block > .scroll h5 + br,
+        .character .app--block > .scroll h6 + br,
+        .character .app--block > .scroll h7 + br,
+        .character .app--block > .scroll h8 + br,
+        .character .app--block > .scroll .h2 + br,
+        .character .app--block > .scroll .h3 + br,
+        .character .app--block > .scroll .h4 + br,
+        .character .app--block > .scroll .h5 + br,
+        .character .app--block > .scroll .h6 + br,
+        .character .app--block > .scroll .h7 + br,
+        .character .app--block > .scroll .h8 + br,
+        .character .app--block > .scroll tag-xl + br,
+        .character .app--block > .scroll tag-lg + br,
+        .character .app--block > .scroll tag-md + br,
+        .character .app--block > .scroll tag-sm + br,
+        .character .app--block > .scroll tag-xs + br,
+        .character .app--block > .scroll tag-year + br,
+        .character .app--block > .scroll tag-date + br {
+          display: none; }
+      .character .app--block > .scroll tag-xl,
+      .character .app--block > .scroll .h2,
+      .character .app--block > .scroll h2 {
+        font-size: 32px; }
+      .character .app--block > .scroll .h3,
+      .character .app--block > .scroll h3 {
+        font-size: 28px; }
+      .character .app--block > .scroll tag-year,
+      .character .app--block > .scroll tag-lg,
+      .character .app--block > .scroll .h4,
+      .character .app--block > .scroll h4 {
+        font-size: 24px; }
+      .character .app--block > .scroll tag-md,
+      .character .app--block > .scroll .h5,
+      .character .app--block > .scroll h5 {
+        font-size: 20px; }
+      .character .app--block > .scroll tag-sm,
+      .character .app--block > .scroll tag-shiptitle,
+      .character .app--block > .scroll tag-relheader,
+      .character .app--block > .scroll .h6,
+      .character .app--block > .scroll h6 {
+        font-size: 16px; }
+      .character .app--block > .scroll tag-date,
+      .character .app--block > .scroll .h7,
+      .character .app--block > .scroll h7 {
+        font-size: 12px; }
+      .character .app--block > .scroll tag-xs,
+      .character .app--block > .scroll tag-relationship > b,
+      .character .app--block > .scroll tag-relationship > a,
+      .character .app--block > .scroll tag-rel > b,
+      .character .app--block > .scroll tag-rel > a,
+      .character .app--block > .scroll .h8,
+      .character .app--block > .scroll h8 {
+        font-size: 8px;
+        letter-spacing: 0.1em;
+        line-height: 200%; }
+      .character .app--block > .scroll tag-shiptitle ~ br,
+      .character .app--block > .scroll tag-relheader ~ br,
+      .character .app--block > .scroll tag-relationship > br,
+      .character .app--block > .scroll tag-rel > br {
+        display: none; }
+      .character .app--block > .scroll tag-relationship,
+      .character .app--block > .scroll tag-rel {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space--xs); }
+        .character .app--block > .scroll tag-relationship:not(:first-child),
+        .character .app--block > .scroll tag-rel:not(:first-child) {
+          margin: 1em 0; }
+      .character .app--block > .scroll tag-relationship > b,
+      .character .app--block > .scroll tag-relationship > a,
+      .character .app--block > .scroll tag-rel > b,
+      .character .app--block > .scroll tag-rel > a {
+        border-bottom: var(--border--primary);
+        border-color: var(--accent); }
+      .character .app--block > .scroll blockquote,
+      .character .app--block > .scroll luxblock {
+        display: block;
+        margin: var(--space--md) 0; }
+        .character .app--block > .scroll blockquote + br,
+        .character .app--block > .scroll luxblock + br {
+          display: none; }
+      .character .app--block > .scroll tag-event,
+      .character .app--block > .scroll blockquote {
+        background: rgba(var(--rgb), 0.25);
+        border: var(--border--primary);
+        border-color: var(--accent);
+        padding: var(--space--md); }
+        @media (min-width: 481px) {
+          .character .app--block > .scroll tag-event,
+          .character .app--block > .scroll blockquote {
+            padding: var(--space--lg); } }
+      .character .app--block > .scroll b {
+        font-weight: 700;
+        color: var(--accent); }
+      .character .app--block > .scroll i {
+        color: var(--text--secondary);
+        font-style: italic; }
+      .character .app--block > .scroll u {
+        text-decoration: underline;
+        text-decoration-color: var(--accent); }
+      .character .app--block > .scroll s {
+        text-decoration: line-through;
+        text-decoration-color: var(--text--secondary); }
+      .character .app--block > .scroll tag-labels {
+        display: none; }
+        .character .app--block > .scroll tag-labels ~ br {
+          display: none; }
+      .character .app--block > .scroll tag-date > br,
+      .character .app--block > .scroll tag-events > br,
+      .character .app--block > .scroll tag-timeline > br,
+      .character .app--block > .scroll tag-tabs > br,
+      .character .app--block > .scroll tag-tabset > br,
+      .character .app--block > .scroll tag-tab > br {
+        display: none; }
+      .character .app--block > .scroll tag-date,
+      .character .app--block > .scroll tag-events {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space--xs); }

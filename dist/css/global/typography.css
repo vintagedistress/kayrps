@@ -1,0 +1,20 @@
+/*******************************
+    Typography
+********************************/
+h1 {
+  font-family: var(--font--serif);
+  font-size: 48px;
+  font-weight: 700;
+  margin: 0.25em 0 0.5em;
+  border-bottom: var(--border--secondary);
+  padding-bottom: 0.25em; }
+
+.h2 {
+  font-family: var(--font--serif);
+  text-transform: capitalize;
+  letter-spacing: 0;
+  font-size: 16px;
+  font-weight: 700; }
+
+a {
+  color: var(--text--primary); }

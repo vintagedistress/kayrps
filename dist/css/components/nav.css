@@ -1,0 +1,99 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--size--menu-width);
+  height: 100vh;
+  background: var(--bg--secondary);
+  padding: 0 var(--space--xs);
+  z-index: 4;
+  border-right: var(--border--primary); }
+  @media (min-width: 601px) {
+    .nav {
+      padding: 0 var(--space--sm); } }
+  .nav--inner {
+    display: grid;
+    grid-template-columns: 100%; }
+    .nav--inner button,
+    .nav--inner a {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: var(--space--sm);
+      padding: 20px 0;
+      width: 100%;
+      color: var(--text--primary);
+      font-size: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-weight: 900;
+      text-align: center;
+      line-height: 100%;
+      transition-duration: 0.3s;
+      border: none;
+      cursor: pointer;
+      background: transparent; }
+      .nav--inner button:not(:last-child),
+      .nav--inner a:not(:last-child) {
+        border-bottom: var(--border--primary); }
+      .nav--inner button i,
+      .nav--inner a i {
+        color: var(--accent);
+        font-size: 0.8rem;
+        transition: 0.3s ease-in-out; }
+        @media (min-width: 601px) {
+          .nav--inner button i,
+          .nav--inner a i {
+            font-size: 1rem; } }
+      .nav--inner button:hover i, .nav--inner button.is-open i,
+      .nav--inner a:hover i,
+      .nav--inner a.is-open i {
+        color: var(--text--primary); }
+      .nav--inner button span,
+      .nav--inner a span {
+        display: none; }
+        @media (min-width: 769px) {
+          .nav--inner button span,
+          .nav--inner a span {
+            display: block; } }
+
+.subnav {
+  position: fixed;
+  top: 0;
+  left: calc(-1 * var(--size--submenu-width));
+  width: var(--size--submenu-width);
+  background: var(--bg--quaternary);
+  z-index: 3;
+  height: 100vh;
+  padding: var(--space--md);
+  transition-duration: 0.3s;
+  opacity: 0;
+  border-right: var(--border--primary); }
+  .subnav.is-open {
+    left: var(--size--menu-width);
+    opacity: 1; }
+  .subnav--inner {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space--xs); }
+    .subnav--inner > strong {
+      text-transform: uppercase;
+      font-weight: 900;
+      font-size: 0.625rem;
+      letter-spacing: 0.1em;
+      line-height: 160%;
+      margin: var(--space--md) 0 0; }
+    .subnav--inner a {
+      background: var(--bg--primary);
+      border-left: var(--border--primary);
+      padding: var(--space--xs) var(--space--sm);
+      color: var(--text--primary);
+      font-size: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      transition: 0.3s ease-in-out; }
+      .subnav--inner a:hover {
+        border-color: var(--accent);
+        color: var(--text--secondary); }

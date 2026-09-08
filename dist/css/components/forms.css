@@ -1,0 +1,247 @@
+.form {
+  background: var(--bg--tertiary);
+  border: var(--border--primary);
+  padding: var(--space--lg);
+  display: grid;
+  margin: 0 auto;
+  max-width: 800px; }
+  .form form {
+    display: grid;
+    gap: var(--space--lg) var(--space--md); }
+    @media (min-width: 769px) {
+      .form form {
+        grid-template-columns: 1fr 1fr; } }
+    .form form .grid {
+      display: grid;
+      gap: var(--space--md); }
+      @media (min-width: 769px) {
+        .form form .grid {
+          grid-template-columns: 1fr 1fr; } }
+    .form form .field-wrap,
+    .form form > label,
+    .form form > label.imagePreview > div,
+    .form form .multitoggle > label {
+      display: flex;
+      flex-direction: column; }
+      .form form .field-wrap > b,
+      .form form > label > b,
+      .form form > label.imagePreview > div > b,
+      .form form .multitoggle > label > b {
+        text-transform: capitalize;
+        font-size: 1.25rem;
+        font-weight: 900;
+        font-family: var(--font--serif);
+        border-bottom: var(--border--secondary);
+        margin-bottom: var(--space--sm); }
+      .form form .field-wrap label b,
+      .form form > label label b,
+      .form form > label.imagePreview > div label b,
+      .form form .multitoggle > label label b {
+        text-transform: uppercase;
+        font-size: 0.5rem;
+        letter-spacing: 0.2em;
+        font-weight: 900; }
+      .form form .field-wrap label > i,
+      .form form > label label > i,
+      .form form > label.imagePreview > div label > i,
+      .form form .multitoggle > label label > i {
+        display: block;
+        border-left: var(--border--secondary);
+        background: var(--bg--primary);
+        width: 100%;
+        padding: var(--space--xs) var(--space--sm);
+        font-size: 0.875rem;
+        color: var(--text--primary);
+        height: 36px; }
+      .form form .field-wrap textarea,
+      .form form .field-wrap select,
+      .form form .field-wrap input,
+      .form form > label textarea,
+      .form form > label select,
+      .form form > label input,
+      .form form > label.imagePreview > div textarea,
+      .form form > label.imagePreview > div select,
+      .form form > label.imagePreview > div input,
+      .form form .multitoggle > label textarea,
+      .form form .multitoggle > label select,
+      .form form .multitoggle > label input {
+        border: 0;
+        border-left: var(--border--secondary);
+        background: var(--bg--primary);
+        width: 100%;
+        padding: var(--space--xs) var(--space--sm);
+        font-size: 0.875rem;
+        color: var(--text--primary);
+        height: 36px;
+        outline: none; }
+        .form form .field-wrap textarea:focus,
+        .form form .field-wrap select:focus,
+        .form form .field-wrap input:focus,
+        .form form > label textarea:focus,
+        .form form > label select:focus,
+        .form form > label input:focus,
+        .form form > label.imagePreview > div textarea:focus,
+        .form form > label.imagePreview > div select:focus,
+        .form form > label.imagePreview > div input:focus,
+        .form form .multitoggle > label textarea:focus,
+        .form form .multitoggle > label select:focus,
+        .form form .multitoggle > label input:focus {
+          border-left-color: var(--accent); }
+      .form form .field-wrap textarea,
+      .form form > label textarea,
+      .form form > label.imagePreview > div textarea,
+      .form form .multitoggle > label textarea {
+        height: 100px; }
+    .form form p {
+      text-align: center; }
+      .form form p:last-of-type {
+        margin-bottom: 0; }
+    .form form > button {
+      background: none;
+      border: var(--border--secondary);
+      color: var(--text--primary);
+      font-family: var(--font--serif);
+      font-weight: 700;
+      font-size: 1.25rem;
+      padding: var(--space--md) var(--space--lg);
+      border-radius: var(--radius--standard);
+      max-width: max-content;
+      margin: 0 auto;
+      line-height: 100%;
+      cursor: pointer;
+      color: var(--text--on-accent);
+      transition-duration: 0.3s; }
+      .form form > button:hover {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: var(--text--secondary); }
+    .form form .adjustable button {
+      background: none;
+      border: var(--border--secondary);
+      color: var(--text--primary);
+      font-weight: 700;
+      font-size: 0.5rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: var(--space--sm) var(--space--md);
+      border-radius: var(--radius--standard);
+      max-width: max-content;
+      margin: 0 auto;
+      line-height: 100%;
+      cursor: pointer;
+      color: var(--text--on-accent);
+      transition-duration: 0.3s; }
+      .form form .adjustable button:hover {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: var(--text--secondary); }
+
+.toggle {
+  width: 40px;
+  height: 20px;
+  background: var(--bg--quaternary);
+  border-radius: 10px;
+  padding: 3px;
+  cursor: pointer;
+  transition-duration: 0.3s; }
+  .toggle::before {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    height: 14px;
+    width: 14px;
+    background: var(--text--primary);
+    display: block;
+    border-radius: 50%;
+    transition-duration: 0.3s; }
+  .toggle input {
+    display: none; }
+  .toggle:has(input:checked) {
+    justify-content: flex-end;
+    background: var(--accent); }
+    .toggle:has(input:checked)::before {
+      left: calc(100% - 17px);
+      background: var(--text--on-accent); }
+
+.rows {
+  display: grid;
+  gap: var(--space--md); }
+  .rows:not(:empty) {
+    margin-bottom: var(--space--md); }
+  .rows blockquote:not(:only-child) {
+    display: none; }
+
+.row.extra-info, .row.links, .row.ships, .row.characters, .row.features, .row.change-ships {
+  display: grid;
+  gap: var(--space--md); }
+  @media (min-width: 769px) {
+    .row.extra-info, .row.links, .row.ships, .row.characters, .row.features, .row.change-ships {
+      grid-template-columns: 1fr 1fr; } }
+
+.row.change-ship:not(:first-child) {
+  margin-top: var(--space--lg); }
+
+.multitoggle {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space--lg); }
+
+.multiselect {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space--md); }
+  .multiselect label {
+    display: flex;
+    flex-direction: row !important;
+    align-items: center;
+    gap: var(--space--sm);
+    cursor: pointer; }
+    .multiselect label b {
+      transition: 0.3s ease-in-out; }
+    .multiselect label:hover b {
+      color: var(--text--secondary); }
+    .multiselect label:hover > span:not(:has(input:checked)) {
+      opacity: 0.5;
+      border-color: var(--accent);
+      background: var(--accent); }
+    .multiselect label > span {
+      display: block;
+      width: 20px;
+      height: 20px;
+      background: none;
+      border: var(--border--primary);
+      border-radius: var(--radius--standard);
+      transition: 0.3s ease-in-out; }
+      .multiselect label > span:has([type="radio"]) {
+        border-radius: 50%; }
+        .multiselect label > span:has([type="radio"])::before {
+          border-radius: 50%; }
+      .multiselect label > span:has(input:checked) {
+        border-color: var(--accent);
+        background: var(--accent); }
+      .multiselect label > span input {
+        display: none; }
+    .multiselect label:hover > span::before {
+      opacity: 0.5; }
+
+.imagePreview {
+  display: flex;
+  align-items: end;
+  gap: var(--space--md);
+  flex-direction: row !important; }
+  .imagePreview img {
+    display: none;
+    width: 80px;
+    aspect-ratio: 1 / 1;
+    flex: 0 0 80px; }
+    .imagePreview img[src=""] {
+      display: none; }
+    @media (min-width: 481px) {
+      .imagePreview img {
+        display: initial; } }
+  .imagePreview > div {
+    width: 100%; }
+
+.hidden {
+  display: none !important; }
