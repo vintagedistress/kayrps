@@ -31,6 +31,7 @@ const relationshipOptions = `<option value="">(select)</option>
     <optgroup label="Extended Family">
         <option value="ancestor">Ancestor</option>
         <option value="grandparent">Grandparent</option>
+           <option value="grandchild">Grandchild</option>
         <option value="cousin">Cousin</option>
         <option value="uncle">Uncle</option>
         <option value="aunt">Aunt</option>
@@ -43,7 +44,8 @@ const relationshipOptions = `<option value="">(select)</option>
         <option value="betrothed">Betrothed</option>
         <option value="partner">Partner</option>
         <option value="crush">Crush</option>
-        <option value="bonded">Bonded</option>
+        <option value="bonded">Bonded</option
+          <option value="bonded">Pet</option>
         <option value="fling">Fling</option>
     </optgroup>
     <optgroup label="Platonic">
