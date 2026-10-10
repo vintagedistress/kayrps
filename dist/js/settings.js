@@ -85,7 +85,7 @@ const threadTags = ["vital", "priority", "rapidfire", "romantic", "family", "fri
 //Chart colors. Heatmap colors are in RGB as this: R, G, B
 const heatmapLow = '3, 163, 123';
 const heatmapMid = '49, 224, 175';
-const heatmapHigh = '132, 227, 186';
+const heatmapHigh = '87, 247, 175';
 const chartColors = [
     '#6c90c7', //blue
     '#c283ac', //pink
