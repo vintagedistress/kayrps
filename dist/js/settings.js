@@ -83,9 +83,9 @@ const relationshipOptions = `<option value="">(select)</option>
 const threadTags = ["vital", "priority", "rapidfire", "romantic", "family", "friends", "coworkers", "group", "event"];
 
 //Chart colors. Heatmap colors are in RGB as this: R, G, B
-const heatmapLow = '103, 166, 154';
-const heatmapMid = '111, 155, 104';
-const heatmapHigh = '174, 157, 102';
+const heatmapLow = '33, 173, 113';
+const heatmapMid = '61, 219, 151';
+const heatmapHigh = '132, 227, 186';
 const chartColors = [
     '#6c90c7', //blue
     '#c283ac', //pink
